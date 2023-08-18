@@ -5,7 +5,10 @@ const PhysicsValue = ({data}) => {
     <div className='physics-value'>
       {data.map(el => {
         return (
-          <p key={el.id}>{el.element} {el.value != undefined ? '=' : '= ?'} {el.value != undefined && el.value}</p>
+          <div key={el.id} className='value'>
+            <p>{el.element}</p>
+            <button>X</button>
+          </div>
         )
       })}
     </div>

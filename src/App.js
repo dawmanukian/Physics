@@ -4,6 +4,10 @@ import PhysicsValues from "./components/physics-values/PhysicsValues";
 import { useReducer, useState } from "react";
 import { v4 as uuidv4} from "uuid";
 
+console.log('====================================');
+console.log('Created by Davit Manukyan');
+console.log('====================================');
+
 const reducer = (state, action) => {
   switch (action.type) {
     case 'ADD-DATA':
@@ -11,8 +15,8 @@ const reducer = (state, action) => {
         ...state,
         {
           id: uuidv4(),
-          element: action.payload.element,
-          value: action.payload.value
+          element: action.payload.element
+          // value: action.payload.value
         }
       ]
     case 'ADD-UNKNOWN':
@@ -39,8 +43,8 @@ function App() {
         dispatch({
           type: 'ADD-DATA',
           payload: {
-            element,
-            value
+            element
+            // value
           }
         })
       }}
@@ -55,7 +59,7 @@ function App() {
       }}
       onCalculating={() => setAnswer('V = 120 / 60 = 2')}
       />
-      <Answer data={answer}/>
+      <Answer imported={data} unknown={unknowns}/>
     </div>
   );
 }

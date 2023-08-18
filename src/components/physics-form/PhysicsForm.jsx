@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 
 const PhysicsForm = ({onAdd, onAddUnknown, onCalculating}) => {
 
-  const [value, setValue] = useState('');
+  // const [value, setValue] = useState('');
   const [imported, setImported] = useState('');
   const [unknown, setUnknown] = useState('');
   const [error, setError] = useState(null)
@@ -18,22 +18,22 @@ const PhysicsForm = ({onAdd, onAddUnknown, onCalculating}) => {
                 setImported(evn.target.value);
               }}
             />
-            <input 
+            {/* <input 
               placeholder='Value' 
               type='number'
               value={value}
               onChange={(evn) => {
                 setValue(evn.target.value)
               }}
-            />
+            /> */}
             <button onClick={() => {
-              if (value === '' || imported === '') {  
+              if (imported === '') {  
                 setError('Fill in all fields !')              
               }else {
                 setError(null)  
                 setImported('')
-                setValue('')
-                onAdd(imported, value)
+                // setValue('')
+                onAdd(imported)
               }
             }}>
                 import

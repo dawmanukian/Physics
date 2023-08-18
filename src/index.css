@@ -67,6 +67,7 @@ code {
 }
 .App .physics-answer .answer {
   padding: 2px 10px 2px 10px;
+  margin: 5px;
 }
 .App .physics-answer .answer p {
   color: #757982;
@@ -74,4 +75,22 @@ code {
 }
 .App .physics-form .error {
   color: rgb(201, 37, 37);
+}
+.App .physics-value button {
+  background: rgb(185, 22, 22);
+  border: none;
+  border-radius: 7px;
+  color: #fff;
+  padding: 5px;
+  cursor: pointer;
+}
+.App .physics-value .value {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+}
+.line {
+  height: 2px;
+  width: 100%;
+  background: #D3366EFF;
 }
