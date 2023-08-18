@@ -56,10 +56,10 @@ const PhysicsForm = ({onAdd, onAddUnknown, onCalculating}) => {
             }}>
                 Add
             </button>
-            <br></br>
+            {/* <br></br>
             <button onClick={() => onCalculating()}>
               Get result
-            </button>
+            </button> */}
         </form>
     </div>
   )

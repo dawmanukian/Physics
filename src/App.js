@@ -27,6 +27,8 @@ const reducer = (state, action) => {
           element: action.payload.element
         }
       ]
+    case 'REMOVE-DATA':
+      return state.filter(el => el.id !== action.payload.id)
   } 
 }
 
@@ -38,7 +40,14 @@ function App() {
 
   return (
     <div className="App">
-      <PhysicsValues imported={data} unknown={unknowns}/>
+      <PhysicsValues imported={data} unknown={unknowns} onRemove={(id) => {
+        dispatch({
+          type: 'REMOVE-DATA',
+          payload: {
+            id
+          }
+        })
+      }}/>
       <PhysicsForm onAdd={(element, value) => {
         dispatch({
           type: 'ADD-DATA',

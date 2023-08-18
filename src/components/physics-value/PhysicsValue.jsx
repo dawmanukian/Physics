@@ -1,13 +1,13 @@
 import React from 'react'
 
-const PhysicsValue = ({data}) => {
+const PhysicsValue = ({data, onRemove}) => {
   return (
     <div className='physics-value'>
       {data.map(el => {
         return (
           <div key={el.id} className='value'>
             <p>{el.element}</p>
-            <button>X</button>
+            {/* <button onClick={() => onRemove(el.id)}>X</button> */}
           </div>
         )
       })}

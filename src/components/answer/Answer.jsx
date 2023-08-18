@@ -1064,7 +1064,8 @@ const formulas = [
   'p = h / λ',
   'V = S / t',
   't = S / V',
-  'S = v * t'
+  'S = v * t',
+  'A = F * S'
  
 ];
 
