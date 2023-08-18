@@ -1,16 +1,16 @@
 import React from 'react'
 import PhysicsValue from '../physics-value/PhysicsValue'
 
-const PhysicsValues = () => {
+const PhysicsValues = ({imported, unknown}) => {
   return (
     <div className='physics-values'>
         <div>
             <h3>Imported values</h3>
-            <PhysicsValue data={'Imported values...'}/> 
+            <PhysicsValue data={imported}/> 
         </div>
         <div>
             <h3>Unknown values</h3>
-            <PhysicsValue data={'Unknown values...'}/>
+            <PhysicsValue data={unknown}/>
         </div>
     </div>
   )

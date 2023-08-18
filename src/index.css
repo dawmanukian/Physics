@@ -50,3 +50,7 @@ code {
   width: 40%;
   font-size: 15px;
 }
+.App .physics-value {
+  color: #757982;
+  font-weight: 900;
+}
