@@ -1,5 +1,12 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
+  background-color: #282c34;
   margin: 0;
+  display: flex;
+  justify-content: center;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
@@ -10,4 +17,36 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.App {
+  max-width: 400px;
+  margin: 16px;
+  padding: 10px;
+  background: #363b43;
+  border-radius: 10px;
+}
+.App .physics-values h3 {
+  color: #282c34;
+}
+.App .physics-form input {
+  width: 100%;
+  border-radius: 7px;
+  border: none;
+  padding: 12px;
+  outline: none;
+  margin: 15px 0px 0px 0px;
+  background: #282c34;
+  color: rgb(159, 159, 159);
+}
+.App .physics-form button {
+  border: none;
+  border-radius: 7px;
+  padding: 10px;
+  color: #fff;
+  background: #D3366EFF;
+  cursor: pointer;
+  margin: 15px 0px 0px 0px;
+  width: 40%;
+  font-size: 15px;
 }
