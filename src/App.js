@@ -30,6 +30,7 @@ function App() {
 
   const [data, dispatch] = useReducer(reducer,[])
   const [unknowns, setUnknowns] = useState([])
+  const [answer, setAnswer] = useState(null)
 
   return (
     <div className="App">
@@ -52,8 +53,9 @@ function App() {
           }
         ])
       }}
+      onCalculating={() => setAnswer('V = 120 / 60 = 2')}
       />
-      <Answer />
+      <Answer data={answer}/>
     </div>
   );
 }

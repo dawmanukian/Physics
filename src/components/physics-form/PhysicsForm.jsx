@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-const PhysicsForm = ({onAdd, onAddUnknown}) => {
+const PhysicsForm = ({onAdd, onAddUnknown, onCalculating}) => {
 
   const [value, setValue] = useState('');
   const [imported, setImported] = useState('');
@@ -45,7 +45,7 @@ const PhysicsForm = ({onAdd, onAddUnknown}) => {
                 Add
             </button>
             <br></br>
-            <button>
+            <button onClick={() => onCalculating()}>
               Get result
             </button>
         </form>

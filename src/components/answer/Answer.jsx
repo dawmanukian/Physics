@@ -1,8 +1,15 @@
 import React from 'react'
 
-const Answer = () => {
+const Answer = ({data}) => {
   return (
-    <div></div>
+    <div className='physics-answer'>
+      {data === null ? null : 
+        <div className='answer'>
+          <p>V = S / t</p>
+          <p>V = 120 / 60 = 2</p>
+        </div>
+      }
+    </div>
   )
 }
 

@@ -54,3 +54,21 @@ code {
   color: #757982;
   font-weight: 900;
 }
+.App .physics-value {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+.App .physics-answer {
+  width: 100%;
+  background: #282c34;
+  margin: 20px 0px 0px 0px;
+  border-radius: 7px;
+}
+.App .physics-answer .answer {
+  padding: 2px 10px 2px 10px;
+}
+.App .physics-answer .answer p {
+  color: #757982;
+  font-weight: 900;
+}
