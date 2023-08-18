@@ -72,3 +72,6 @@ code {
   color: #757982;
   font-weight: 900;
 }
+.App .physics-form .error {
+  color: rgb(201, 37, 37);
+}

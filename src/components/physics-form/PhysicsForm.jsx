@@ -5,9 +5,11 @@ const PhysicsForm = ({onAdd, onAddUnknown, onCalculating}) => {
   const [value, setValue] = useState('');
   const [imported, setImported] = useState('');
   const [unknown, setUnknown] = useState('');
+  const [error, setError] = useState(null)
 
   return (
     <div className='physics-form'>
+        {error === null ? null : <p className='error'>{error}</p>}
         <form onSubmit={(evn) => evn.preventDefault()}>
             <input 
               placeholder='Import data'
@@ -25,9 +27,14 @@ const PhysicsForm = ({onAdd, onAddUnknown, onCalculating}) => {
               }}
             />
             <button onClick={() => {
-              setImported('')
-              setValue('')
-              onAdd(imported, value)
+              if (value === '' || imported === '') {  
+                setError('Fill in all fields !')              
+              }else {
+                setError(null)  
+                setImported('')
+                setValue('')
+                onAdd(imported, value)
+              }
             }}>
                 import
             </button>
@@ -39,8 +46,13 @@ const PhysicsForm = ({onAdd, onAddUnknown, onCalculating}) => {
               }}
             />
             <button onClick={() => {
-              setUnknown('')
-              onAddUnknown(unknown)
+              if (unknown === '') {  
+                setError('Fill in all fields !')              
+              }else {
+                setError(null)
+                setUnknown('')
+                onAddUnknown(unknown)
+              }
             }}>
                 Add
             </button>
