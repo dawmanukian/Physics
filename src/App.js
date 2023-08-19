@@ -2,6 +2,7 @@ import Answer from "./components/answer/Answer";
 import PhysicsForm from "./components/physics-form/PhysicsForm";
 import PhysicsValues from "./components/physics-values/PhysicsValues";
 import { useReducer, useState } from "react";
+import { FaMoon, FaSun } from "react-icons/fa";
 import { v4 as uuidv4} from "uuid";
 
 console.log('====================================');
@@ -39,45 +40,47 @@ function App() {
   const [data, dispatch] = useReducer(reducer,[])
   const [unknowns, setUnknowns] = useState([])
   const [answer, setAnswer] = useState(null)
+  const [mode, setMode] = useState('App')
 
   return (
-    <div className="App">
-      <PhysicsValues imported={data} unknown={unknowns} onRemove={(id) => {
-        dispatch({
-          type: 'REMOVE-DATA',
-          payload: {
-            id
-          }
-        })
-      }}/>
-      <PhysicsForm onAdd={(element, value) => {
-        dispatch({
-          type: 'ADD-DATA',
-          payload: {
-            element
-            // value
-          }
-        })
-      }}
-      onAddUnknown={(element) => {
-        setUnknowns([
-          ...unknowns,
-          {
-            id: uuidv4(),
-            element
-          }
-        ])
-      }}
-      onClear={() => {
-        dispatch({
-          type: 'CLEAR'
-        })
-        setAnswer([])
-        setUnknowns([])
-      }}
-      />
-      <Answer imported={data} unknown={unknowns}/>
-    </div>
+      <div className={mode}>
+        {mode === 'App' ? <FaSun onClick={() => setMode('Dark-app')} className="mode-button sun"/> : <FaMoon onClick={() => setMode('App')} className="mode-button moon"/>}
+        <PhysicsValues imported={data} unknown={unknowns} onRemove={(id) => {
+          dispatch({
+            type: 'REMOVE-DATA',
+            payload: {
+              id
+            }
+          })
+        }}/>
+        <PhysicsForm onAdd={(element, value) => {
+          dispatch({
+            type: 'ADD-DATA',
+            payload: {
+              element
+              // value
+            }
+          })
+        }}
+        onAddUnknown={(element) => {
+          setUnknowns([
+            ...unknowns,
+            {
+              id: uuidv4(),
+              element
+            }
+          ])
+        }}
+        onClear={() => {
+          dispatch({
+            type: 'CLEAR'
+          })
+          setAnswer([])
+          setUnknowns([])
+        }}
+        />
+        <Answer imported={data} unknown={unknowns}/>
+      </div>
   );
 }
 
