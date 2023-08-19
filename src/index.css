@@ -127,6 +127,9 @@ code {
   background: #a1a6b0;
   color: rgb(56, 55, 55);
   }
+  .Dark-app .physics-form input::placeholder {
+    color: #61646a;
+  }
   .Dark-app .physics-form button {
   border: none;
   border-radius: 7px;
