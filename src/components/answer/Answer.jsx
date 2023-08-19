@@ -1100,7 +1100,7 @@ const Answer = ({imported, unknown}) => {
     }
   }))
 
-  if(imported[0] != null){
+  if(unknown[0] != null){
     return (
       <div className='physics-answer'>
         {answ.map(el => {
