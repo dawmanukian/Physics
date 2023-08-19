@@ -4,6 +4,7 @@ import PhysicsValues from "./components/physics-values/PhysicsValues";
 import { useReducer, useState } from "react";
 import { FaMoon, FaSun } from "react-icons/fa";
 import { v4 as uuidv4} from "uuid";
+import Cookies from 'js-cookie';
 
 console.log('====================================');
 console.log('Created by Davit Manukyan');
@@ -36,15 +37,25 @@ const reducer = (state, action) => {
 }
 
 function App() {
-
+  if (Cookies.get('mode') === undefined) {
+    Cookies.set('mode', 'App');
+  }
   const [data, dispatch] = useReducer(reducer,[])
   const [unknowns, setUnknowns] = useState([])
   const [answer, setAnswer] = useState(null)
-  const [mode, setMode] = useState('App')
+  const [mode, setMode] = useState(Cookies.get('mode'))
 
   return (
       <div className={mode}>
-        {mode === 'App' ? <FaSun onClick={() => setMode('Dark-app')} className="mode-button sun"/> : <FaMoon onClick={() => setMode('App')} className="mode-button moon"/>}
+        {mode === 'App' ? <FaSun onClick={() => 
+        {
+          setMode('Dark-app')
+          Cookies.set('mode', 'Dark-app')
+        }} className="mode-button sun"/> : <FaMoon onClick={() => 
+        {
+          setMode('App')
+          Cookies.set('mode', 'App')
+        }} className="mode-button moon"/>}
         <PhysicsValues imported={data} unknown={unknowns} onRemove={(id) => {
           dispatch({
             type: 'REMOVE-DATA',
