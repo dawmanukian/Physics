@@ -1,7 +1,6 @@
 * {
   box-sizing: border-box;
 }
-
 body {
   background-color: #282c34;
   margin: 0;
@@ -13,12 +12,10 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-
 .App {
   max-width: 400px;
   margin: 16px;
@@ -48,7 +45,7 @@ code {
   cursor: pointer;
   margin: 15px 0px 0px 0px;
   width: 40%;
-  font-size: 15px;
+  font-size: 16px;
 }
 .App .physics-value {
   color: #757982;
@@ -93,4 +90,10 @@ code {
   height: 2px;
   width: 100%;
   background: #D3366EFF;
+}
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
 }

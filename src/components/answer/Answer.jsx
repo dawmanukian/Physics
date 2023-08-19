@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { v4 as uuidv4 } from 'uuid';
 const formulas = [
   'F = ma',
@@ -1070,6 +1070,12 @@ const formulas = [
 ];
 
 const Answer = ({imported, unknown}) => {
+  useEffect(() => {
+    
+    setData([])
+    setAnsw([])
+
+  }, [imported, unknown])
   
   const [data, setData] = useState([])
   const [answ, setAnsw] = useState([])
@@ -1089,25 +1095,27 @@ const Answer = ({imported, unknown}) => {
     }
   }))
 
-  return (
-    <div className='physics-answer'>
-      {answ.map(el => {
-        return (
-          <div className='answer' key={answ.indexOf(el)}>
-            <p>{el}</p>
-          </div>
-        )
-      })}
-      <div className='line'></div>
-      {data.map(el => {
-        return (
-          <div className='answer' key={data.indexOf(el)}>
-            <p>{el}</p>
-          </div>
-        )
-      })}
-    </div>
-  )
+  if(imported[0] != null){
+    return (
+      <div className='physics-answer'>
+        {answ.map(el => {
+          return (
+            <div className='answer' key={answ.indexOf(el)}>
+              <p>{el}</p>
+            </div>
+          )
+        })}
+        <div className='line'></div>
+        {data.map(el => {
+          return (
+            <div className='answer' key={data.indexOf(el)}>
+              <p>{el}</p>
+            </div>
+          )
+        })}
+      </div>
+    )
+  }
 }
 
 export default Answer

@@ -29,6 +29,8 @@ const reducer = (state, action) => {
       ]
     case 'REMOVE-DATA':
       return state.filter(el => el.id !== action.payload.id)
+    case 'CLEAR':
+      return []
   } 
 }
 
@@ -66,7 +68,13 @@ function App() {
           }
         ])
       }}
-      onCalculating={() => setAnswer('V = 120 / 60 = 2')}
+      onClear={() => {
+        dispatch({
+          type: 'CLEAR'
+        })
+        setAnswer([])
+        setUnknowns([])
+      }}
       />
       <Answer imported={data} unknown={unknowns}/>
     </div>

@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
+import { FiTrash2, FiUploadCloud, FiPlusCircle } from "react-icons/fi";
 
-const PhysicsForm = ({onAdd, onAddUnknown, onCalculating}) => {
+const PhysicsForm = ({onAdd, onAddUnknown, onClear}) => {
 
   // const [value, setValue] = useState('');
   const [imported, setImported] = useState('');
@@ -36,7 +37,7 @@ const PhysicsForm = ({onAdd, onAddUnknown, onCalculating}) => {
                 onAdd(imported)
               }
             }}>
-                import
+                <div className='btn'>import <FiUploadCloud /></div>
             </button>
             <input 
               placeholder='Add unknown'
@@ -54,12 +55,14 @@ const PhysicsForm = ({onAdd, onAddUnknown, onCalculating}) => {
                 onAddUnknown(unknown)
               }
             }}>
-                Add
+                <div className='btn'>Add <FiPlusCircle /></div>
             </button>
             {/* <br></br>
             <button onClick={() => onCalculating()}>
               Get result
             </button> */}
+            <br />
+            <button onClick={onClear}><div className='btn'>Clear <FiTrash2 /></div></button>
         </form>
     </div>
   )
